@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator using Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="card p-3 shadow" style="width: 280px;">
+        <h4 class="text-center mb-3">Calculator</h4>
+
+        <!-- Display -->
+        <input type="text" id="display" class="form-control mb-3 text-end fs-4" readonly>
+
+        <!-- Buttons -->
+        <div class="row g-2">
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('9')">9</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('8')">8</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('7')">7</button></div>
+            <div class="col-3"><button class="btn btn-warning w-100" onclick="appendValue('/')">÷</button></div>
+
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('6')">6</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('5')">5</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('4')">4</button></div>
+            <div class="col-3"><button class="btn btn-warning w-100" onclick="appendValue('*')">×</button></div>
+
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('3')">3</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('2')">2</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('1')">1</button></div>
+            <div class="col-3"><button class="btn btn-warning w-100" onclick="appendValue('-')">−</button></div>
+
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('0')">0</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="appendValue('.')">.</button></div>
+            <div class="col-3"><button class="btn btn-danger w-100" onclick="clearDisplay()">C</button></div>
+            <div class="col-3"><button class="btn btn-warning w-100" onclick="appendValue('+')">+</button></div>
+
+            <div class="col-12">
+                <button class="btn btn-primary w-100" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const display = document.getElementById("display");
+
+    function appendValue(value) {
+        display.value += value;
+    }
+
+    function calculate() {
+        try {
+            display.value = eval(display.value);
+        } catch {
+            display.value = "Error";
+        }
+    }
+
+    function clearDisplay() {
+        display.value = "";
+    }
+</script>
+
+</body>
+</html>
